@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
+import { AppContext } from '../Contexts/AppContext';
 // import { ThemeProvider } from 'theme-ui';
 import '../styles/globals.css';
 
@@ -28,9 +29,11 @@ function MyApp({ Component, pageProps }) {
   // LAYOUT FOR EVERY SINGLE PAGE IN THE WEBSITE:
   return (
     // <ThemeProvider theme={theme}>
-    <Layout>
-      <Component podcasts={podcasts} {...pageProps} />
-    </Layout>
+    <AppContext.Provider value={podcasts, setPodcasts}>
+      <Layout>
+        <Component podcasts={podcasts} {...pageProps} />
+      </Layout>
+    </AppContext.Provider>
     // </ThemeProvider>
   ); //Component is index.js (home)
 }

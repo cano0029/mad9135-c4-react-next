@@ -5,12 +5,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
+import AddPodcasts from './AddPodcast';
 
 export default function Podcasts({ podcasts }) {
   console.log(podcasts);
 
   return (
     <div>
+      <Link href="/podcasts/AddPodcast" as="/podcasts/AddPodcast">
+        <a>
+          <button>Add new podcast</button>
+        </a>
+      </Link>
       <h1>Podcast List will go here</h1>
       <p>Your list of podcast</p>
       {podcasts &&

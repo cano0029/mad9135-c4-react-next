@@ -85,7 +85,7 @@ export default handler;
 //       );
 //       const updatedPod = { ...podcasts, ...req.body };
 //       podcasts[index1] = updatedPod;
-//       res.status(200).json({ podcadt: updatedPod });
+//       res.status(200).json({ podcast: updatedPod });
 //       break;
 
 //     case 'DELETE':
