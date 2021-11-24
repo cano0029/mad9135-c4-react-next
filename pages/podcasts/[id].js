@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/Link';
 import Image from 'next/image';
 import Stack from '@mui/material/Stack';
@@ -7,18 +7,18 @@ import Button from '@mui/material/Button';
 import { AppContext } from '../../Contexts/AppContext';
 import { useContext } from 'react';
 
-
 // /notes/:id
 export default function PodcastDetails(props) {
   const router = useRouter();
   const { id } = router.query;
-  const [podcast, setPodcast] = useState(null);
-  const {removePodcast} = useContext(AppContext)
-  
+  const [podcast, setPodcast] = useState({});
+
   //TODO: fetch podcast
 
-
   useEffect(() => {
+    // setPodcast(podcastHandler({ action: 'GET', payload: id }));
+    // console.log(podcast);
+
     let url = `/api/podcasts/${id}`;
     if (id) {
       fetch(url, { method: 'GET' })
@@ -27,6 +27,7 @@ export default function PodcastDetails(props) {
           return resp.json();
         })
         .then((results) => {
+          console.log(results);
           setPodcast(results.podcast);
         })
         .catch((err) => {
@@ -39,9 +40,7 @@ export default function PodcastDetails(props) {
           setPodcast(fake);
         });
     }
-  }, [id]);
-
-  //TODO: build podcast details page
+  }, []);
 
   return (
     <div>
@@ -70,14 +69,21 @@ export default function PodcastDetails(props) {
         )}
       </div>
       <Stack spacing={2} direction="row">
-      {/* TODO: functionality for both buttons */}
-      {/* <Link href="/podcasts" as="podcasts"> */}
+        {/* TODO: functionality for both buttons */}
+        {/* <Link href="/podcasts" as="podcasts"> */}
         {/* <a> */}
-      <Button variant="contained" onClick={()=>{removePodcast(id)}}>Delete</Button>
+        <Button
+          variant="contained"
+          onClick={() => {
+            removePodcast(id);
+          }}
+        >
+          Delete
+        </Button>
         {/* </a> */}
-      {/* </Link> */}
-      <Button variant="outlined">Edit</Button>
-    </Stack>
+        {/* </Link> */}
+        <Button variant="outlined">Edit</Button>
+      </Stack>
     </div>
   );
 }
