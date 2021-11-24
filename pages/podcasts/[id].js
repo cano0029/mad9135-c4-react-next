@@ -7,16 +7,14 @@ import Button from '@mui/material/Button';
 import { AppContext } from '../../Contexts/AppContext';
 import { useContext } from 'react';
 
-
 // /notes/:id
 export default function PodcastDetails(props) {
   const router = useRouter();
   const { id } = router.query;
   const [podcast, setPodcast] = useState(null);
-  const {removePodcast} = useContext(AppContext)
-  
-  //TODO: fetch podcast
+  const { podcastHandler } = useContext(AppContext);
 
+  //TODO: fetch podcast
 
   useEffect(() => {
     let url = `/api/podcasts/${id}`;
@@ -70,14 +68,24 @@ export default function PodcastDetails(props) {
         )}
       </div>
       <Stack spacing={2} direction="row">
-      {/* TODO: functionality for both buttons */}
-      {/* <Link href="/podcasts" as="podcasts"> */}
-        {/* <a> */}
-      <Button variant="contained" onClick={()=>{removePodcast(id)}}>Delete</Button>
-        {/* </a> */}
-      {/* </Link> */}
-      <Button variant="outlined">Edit</Button>
-    </Stack>
+        {/* TODO: functionality for both buttons */}
+        <Link href="/podcasts" as="podcasts">
+          <a>
+            <Button
+              variant="contained"
+              onClick={() => {
+                podcastHandler({
+                  action: 'DELETE',
+                  payload: id,
+                });
+              }}
+            >
+              Delete
+            </Button>
+          </a>
+        </Link>
+        <Button variant="outlined">Edit</Button>
+      </Stack>
     </div>
   );
 }

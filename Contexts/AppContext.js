@@ -7,19 +7,18 @@ export const AppContext = createContext();
 //Provider Component
 export const AppProvider = ({ children }) => {
   const [podcasts, setPodcasts] = useState(dataSource);
+  const [podcast, setPodcast] = useState();
 
   //Actions
 
-  function podcastHandler({ action , payload }) {
-        if(action =='CREATE'){
-          console.log("CREATING")
-          console.log(payload)
-        let url = '/api/podcasts/';
-        fetch(url, { 
-          method: 'POST',
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(payload)
-        })
+  function podcastHandler({ action, payload }) {
+    if (action == 'CREATE') {
+      let url = '/api/podcasts/';
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
         .then(
           (resp) => {
             if (resp.ok) return resp.json();
@@ -30,49 +29,36 @@ export const AppProvider = ({ children }) => {
             console.warn({ err });
           }
         )
-        .then((data) => {
-            const {newTitle, newHost, newGenre} = payload
-            const newPodcast = {
-              title: newTitle,
-              author: newHost,
-              genre: newGenre,
-              image: payload.newImage
-            }
-            podcasts.push(newPodcast)
-          })
-          .then(()=>{
+        .then(() => {
           setPodcasts(podcasts);
-          return podcasts
-          })
-          .catch(console.error);
-        // return setPodcasts([payload, ...podcasts]);
-      } 
-      
-      
-      else if(action == 'DELETE'){
-        return setPodcasts(
-          podcasts.filter((podcast) => {
-            podcast.id !== payload;
-          })
-        );
-      } 
-      
-      
-      else if( action == 'EDIT'){
-        const updatePodcasts = podcasts.map((podcast) => {
-          if (podcast.id === payload.id) {
-            return payload;
-          }
-          return podcast;
-        });
-        return setPodcasts(updatePodcasts);
-      } 
-      
-      
-      else {
-        return podcasts
-      }
-
+          return podcasts;
+        })
+        .catch(console.error);
+    } else if (action == 'DELETE') {
+      let url = `/api/podcasts/${payload}`;
+      fetch(url, {
+        method: 'DELETE',
+        payload,
+      }).then(
+        (resp) => {
+          if (resp.ok) return resp.json();
+          throw new Error(resp.statusText);
+        },
+        (err) => {
+          console.warn({ err });
+        }
+      );
+    } else if (action == 'EDIT') {
+      const updatePodcasts = podcasts.map((podcast) => {
+        if (podcast.id === payload.id) {
+          return payload;
+        }
+        return podcast;
+      });
+      return setPodcasts(updatePodcasts);
+    } else {
+      return podcasts;
+    }
   }
 
   return (
@@ -82,22 +68,19 @@ export const AppProvider = ({ children }) => {
   );
 };
 
-
-
-
 // import React, {createContext, useMemo, useReducer} from "react";
 // import AppReducer from './AppReducer'
 // import data from '../datasource/data'
 // import Podcasts from "../pages/podcasts";
 // import { useState } from "react";
 
-// //inital state 
+// //inital state
 // const initialState = data
 
-// //create context 
+// //create context
 // export const AppContext = createContext(initialState)
 
-// //Provider Component 
+// //Provider Component
 // export const AppProvider = ({children}) =>{
 //   const [state, dispatch] = useReducer(AppReducer, initialState);
 
