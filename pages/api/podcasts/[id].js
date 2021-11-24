@@ -33,6 +33,7 @@ const handler = nc()
     res.json({ podcast: updated });
   })
   .delete((req, res) => {
+    console.log("ive been deleted!")
     const podcast = getPodcast(req.query.id);
 
     if (!podcast) {

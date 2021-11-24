@@ -5,22 +5,22 @@ import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useContext } from 'react';
+import { AppContext } from '../../Contexts/AppContext';
 
 export default function AddPodcasts (){
   const [title, setTitle] = useState("")
   const [host, setHost] = useState("")
   const [genre, setGenre] = useState("")
   const [image, setImage] = useState("")
+  const {podcastHandler} = useContext(AppContext)
 
-  const addFunc = ()=>{
     let newPodcastObj = {
-      newTitle: title,
-      newHost: host,
-      newGenre:genre,
-      newImage: image
+      title: title,
+      author: host,
+      genre:genre,
+      image: image
     }
-    console.log(newPodcastObj)
-  }
+  
 
   return(
     <>
@@ -39,8 +39,13 @@ export default function AddPodcasts (){
     </Box>
 
     <Stack spacing={2} direction="row">
-      {/* TODO: functionality for both buttons */}
-      <Button variant="contained" onClick={()=>{addFunc()}}>Confirm</Button>
+      {/* TODO: figure out add functionality */}
+      <Button variant="contained" onClick={()=>{podcastHandler({
+        action :"CREATE",
+        payload: newPodcastObj}
+      )}}
+      >Confirm</Button>
+
       <Link href="/podcasts" as="/podcasts">
         <a>
           <Button variant="outlined">Discard</Button>

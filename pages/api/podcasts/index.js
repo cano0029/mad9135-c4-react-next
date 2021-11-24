@@ -2,12 +2,14 @@
 import nc from 'next-connect';
 import podcasts from '../../../datasource/data';
 
+
 const podcastsHandler = nc()
   .get((req, res) => {
     //returns all notes
     res.json({ podcasts: podcasts });
   })
   .post((req, res) => {
+    console.log("cool im posting")
     //adds a new note
     const id = Date.now();
     const podcast = { ...req.body, id };

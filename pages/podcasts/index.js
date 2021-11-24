@@ -5,10 +5,29 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
-import AddPodcasts from './AddPodcast';
+import podcastsHandler from '../api/podcasts';
+import { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../../Contexts/AppContext';
 
-export default function Podcasts({ podcasts }) {
-  console.log(podcasts);
+export default function Podcasts() {
+
+  const [podcasts, setPodcasts] = useState([]);
+  
+  useEffect(() => {
+    let url = '/api/podcasts/';
+    fetch(url, { method: 'GET' })
+    .then((resp) => {
+      if (!resp.ok) throw new Error(resp.statusText);
+      return resp.json();
+    })
+    .then((data) => {
+      console.log("INDEX PODCASTS BEFORE", data)
+
+      setPodcasts(data.podcasts);
+      console.log("INDEX PODCASTS", data)
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div>
