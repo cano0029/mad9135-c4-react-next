@@ -29,17 +29,19 @@ export default function editModal({ podcast }) {
   return (
     <>
       <Box>
-        <Image src={`/images/${image}`} width="150" height="150" />
-        <input type="file" src={image} />
+        <Image src={`/images/${image}`} width="150" height="150" alt="podcast thumbnail"/>
         <TextField
+          label="Title"
           value={title}
           onChange={(ev) => setTitle(ev.target.value)}
         ></TextField>
         <TextField
+          label="Author"
           value={author}
           onChange={(ev) => setAuthor(ev.target.value)}
         ></TextField>
         <TextField
+          label="Genre"
           value={genre}
           onChange={(ev) => setGenre(ev.target.value)}
         ></TextField>

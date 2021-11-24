@@ -21,10 +21,7 @@ export default function Podcasts() {
         return resp.json();
       })
       .then((data) => {
-        console.log('INDEX PODCASTS BEFORE', data);
-
         setPodcasts(data.podcasts);
-        console.log('INDEX PODCASTS', data);
       })
       .catch(console.error);
   }, []);

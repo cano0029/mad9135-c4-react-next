@@ -6,12 +6,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { AppContext } from '../../Contexts/AppContext';
+import Image from 'next/dist/client/image';
 
 export default function AddPodcasts() {
   const [title, setTitle] = useState('');
   const [host, setHost] = useState('');
   const [genre, setGenre] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState('default.png');
   const { podcastHandler } = useContext(AppContext);
 
   let newPodcastObj = {
@@ -47,12 +48,6 @@ export default function AddPodcasts() {
           label="Genre"
           onChange={(event) => setGenre(event.target.value)}
         />
-        <input
-          required
-          type="file"
-          onChange={(event) => setImage(event.target.value)}
-        />
-        {/* TODO: figure out what to do with image once uploaded */}
       </Box>
 
       <Stack spacing={2} direction="row">
