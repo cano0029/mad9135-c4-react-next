@@ -35,10 +35,18 @@ export const AppProvider = ({ children }) => {
         })
         .catch(console.error);
     } else if (action == 'DELETE') {
-      return setPodcasts(
-        podcasts.filter((podcast) => {
-          podcast.id !== payload;
-        })
+      let url = `/api/podcasts/${payload}`;
+      fetch(url, {
+        method: 'DELETE',
+        payload,
+      }).then(
+        (resp) => {
+          if (resp.ok) return resp.json();
+          throw new Error(resp.statusText);
+        },
+        (err) => {
+          console.warn({ err });
+        }
       );
     } else if (action == 'EDIT') {
       const updatePodcasts = podcasts.map((podcast) => {
