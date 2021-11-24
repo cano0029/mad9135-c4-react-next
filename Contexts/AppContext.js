@@ -50,6 +50,20 @@ export const AppProvider = ({ children }) => {
       );
     } else if (action == 'PATCH') {
       console.log('IM EDITING', payload);
+      let url = `/api/podcasts/${payload.id}`;
+      fetch(url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).then(
+        (resp) => {
+          if (resp.ok) return resp.json();
+          throw new Error(resp.statusText);
+        },
+        (err) => {
+          console.warn({ err });
+        }
+      );
     } else {
       return podcasts;
     }

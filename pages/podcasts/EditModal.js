@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import Image from 'next/dist/client/image';
 import { AppContext } from '../../Contexts/AppContext';
+import Link from 'next/link';
 
 export default function editModal({ podcast }) {
   console.log('MODAL', podcast);
@@ -44,18 +45,25 @@ export default function editModal({ podcast }) {
         ></TextField>
       </Box>
       <div>
-        <Button
-          onClick={(ev) => {
-            podcastHandler({
-              action: 'PATCH',
-              payload: updatedPodcast,
-            });
-          }}
-        >
-          {' '}
-          Save{' '}
-        </Button>
-        <Button> Cancel </Button>
+        <Link href="/podcasts" as="/podcasts">
+          <a>
+            <Button
+              onClick={(ev) => {
+                podcastHandler({
+                  action: 'PATCH',
+                  payload: updatedPodcast,
+                });
+              }}
+            >
+              Save
+            </Button>
+          </a>
+        </Link>
+        <Link href="/podcasts" as="/podcasts">
+          <a>
+            <Button variant="outlined">Cancel</Button>
+          </a>
+        </Link>
       </div>
     </>
   );
