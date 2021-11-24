@@ -48,14 +48,22 @@ export const AppProvider = ({ children }) => {
           console.warn({ err });
         }
       );
-    } else if (action == 'EDIT') {
-      const updatePodcasts = podcasts.map((podcast) => {
-        if (podcast.id === payload.id) {
-          return payload;
+    } else if (action == 'PATCH') {
+      console.log('IM EDITING', payload);
+      let url = `/api/podcasts/${payload.id}`;
+      fetch(url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).then(
+        (resp) => {
+          if (resp.ok) return resp.json();
+          throw new Error(resp.statusText);
+        },
+        (err) => {
+          console.warn({ err });
         }
-        return podcast;
-      });
-      return setPodcasts(updatePodcasts);
+      );
     } else {
       return podcasts;
     }
@@ -67,62 +75,3 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
-// import React, {createContext, useMemo, useReducer} from "react";
-// import AppReducer from './AppReducer'
-// import data from '../datasource/data'
-// import Podcasts from "../pages/podcasts";
-// import { useState } from "react";
-
-// //inital state
-// const initialState = data
-
-// //create context
-// export const AppContext = createContext(initialState)
-
-// //Provider Component
-// export const AppProvider = ({children}) =>{
-//   const [state, dispatch] = useReducer(AppReducer, initialState);
-
-// //Actions
-//   const removePodcast =(id)=>{
-//     console.log("DELETE ME: ", id)
-//     dispatch({
-//       type: "DELETE",
-//       payload: id
-//     })
-//   }
-
-//   const addPodcast = (obj)=>{
-//     console.log("ive been added: ", obj)
-//     console.log(state)
-//       dispatch({
-//         type: "POST",
-//         payload: {
-//           title: obj.title,
-//           host: obj.host,
-//           genre: obj.genre,
-//           image: obj.image
-//         }
-//       })
-//     }
-
-//     const editPodcast=(id, obj)=>{
-//       dispatch({
-//         type: "PATCH",
-//         payload: {
-//           id: id,
-//           title: obj.title,
-//           host: obj.host,
-//           genre: obj.genre,
-//           image: obj.image
-//       }
-//       })
-//     }
-
-//   return (
-//     <AppContext.Provider value={{podcasts: data, removePodcast: removePodcast, addPodcast: addPodcast}}>
-//       {children}
-//     </AppContext.Provider>
-//   )
-// }

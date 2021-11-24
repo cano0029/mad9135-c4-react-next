@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { AppContext } from '../../Contexts/AppContext';
 import { useContext } from 'react';
+import EditModal from './EditModal';
 
 // /notes/:id
 export default function PodcastDetails(props) {
@@ -13,9 +14,9 @@ export default function PodcastDetails(props) {
   const { id } = router.query;
   const [podcast, setPodcast] = useState(null);
   const { podcastHandler } = useContext(AppContext);
+  const [showModal, setShowModal] = useState(false);
 
   //TODO: fetch podcast
-
   useEffect(() => {
     let url = `/api/podcasts/${id}`;
     if (id) {
@@ -39,53 +40,74 @@ export default function PodcastDetails(props) {
     }
   }, [id]);
 
-  //TODO: build podcast details page
+  //============= edit =============
 
-  return (
-    <div>
-      <Link href="/podcasts">
-        <a>&larr; Back to Podcast List</a>
-      </Link>
-      <h1>Podcast Details Page</h1>
-      <p>Add details here</p>
-      <p>This is Podcast {id}</p>
+  if (showModal) {
+    return (
       <div>
-        {podcast && (
-          <div>
-            <Image
-              src={`/images/${podcast.image}`}
-              alt="cover"
-              height={150}
-              width={150}
-            />
-            <div></div>
-            <div>
-              <h1>{podcast.title}</h1>
-              <h2>{podcast.author}</h2>
-              <h3>{podcast.genre}</h3>
-            </div>
-          </div>
-        )}
-      </div>
-      <Stack spacing={2} direction="row">
-        {/* TODO: functionality for both buttons */}
-        <Link href="/podcasts" as="podcasts">
-          <a>
-            <Button
-              variant="contained"
-              onClick={() => {
-                podcastHandler({
-                  action: 'DELETE',
-                  payload: id,
-                });
-              }}
-            >
-              Delete
-            </Button>
-          </a>
+        <Link href="/podcasts">
+          <a>&larr; Back to Podcast List</a>
         </Link>
-        <Button variant="outlined">Edit</Button>
-      </Stack>
-    </div>
-  );
+        <h1>Podcast Details Page</h1>
+        <p>Add details here</p>
+        <p>This is Podcast {id}</p>
+
+        <div>
+          <EditModal podcast={podcast} />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Link href="/podcasts">
+          <a>&larr; Back to Podcast List</a>
+        </Link>
+        <h1>Podcast Details Page</h1>
+        <p>Add details here</p>
+        <p>This is Podcast {id}</p>
+        <div>
+          {podcast && (
+            <div>
+              <Image
+                src={`/images/${podcast.image}`}
+                alt="cover"
+                height={150}
+                width={150}
+              />
+              <div></div>
+              <div>
+                <h1>{podcast.title}</h1>
+                <h2>{podcast.author}</h2>
+                <h3>{podcast.genre}</h3>
+              </div>
+            </div>
+          )}
+        </div>
+        <Stack spacing={2} direction="row">
+          <Link href="/podcasts" as="podcasts">
+            <a>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  podcastHandler({ action: 'DELETE', payload: id });
+                }}
+              >
+                {' '}
+                Delete
+              </Button>
+            </a>
+          </Link>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            Edit
+          </Button>
+        </Stack>
+      </div>
+    );
+  }
 }
