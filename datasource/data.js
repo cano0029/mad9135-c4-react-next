@@ -1,5 +1,5 @@
 // TODO: add an image filename - test if filepath works
-const data = [
+const dataSource = [
   {
     id: 'abcd0001',
     title: 'Armchair Expert',
@@ -72,4 +72,4 @@ const data = [
   },
 ];
 
-export default data;
+export default dataSource;
