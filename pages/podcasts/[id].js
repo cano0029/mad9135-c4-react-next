@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { AppContext } from '../../Contexts/AppContext';
 import { useContext } from 'react';
 import EditModal from './EditModal';
-import styles from '../../styles/Details.module.css' 
+import styles from '../../styles/Details.module.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
@@ -64,12 +64,20 @@ export default function PodcastDetails(props) {
     return (
       <div className={styles.main}>
         <Link href="/podcasts">
-          <a style={{position:"absolute", left:"1rem", marginTop:"1.8rem", fontSize:"1.2rem"}}>&larr; Back</a>
+          <a
+            style={{
+              position: 'absolute',
+              left: '1rem',
+              marginTop: '1.8rem',
+              fontSize: '1rem',
+            }}
+          >
+            &larr; Back
+          </a>
         </Link>
-        <h1 style={{marginBottom:'3rem'}}>Details</h1>
+        <h1 style={{ marginBottom: '3rem' }}>Details</h1>
         <div>
           {podcast && (
-            
             <div>
               <Image
                 src={`/images/${podcast.image}`}
@@ -79,7 +87,9 @@ export default function PodcastDetails(props) {
                 className={styles.mainImg}
               />
               <div className={styles.detailsSkirt}>
-                <h1 style={{margin:"0rem", padding:'0.5rem'}}>{podcast.title}</h1>
+                <h1 style={{ margin: '0rem', padding: '0.5rem' }}>
+                  {podcast.title}
+                </h1>
                 <div className={styles.authorChip}>
                   <h3>{podcast.author}</h3>
                   <div className={styles.chip}>
@@ -87,35 +97,32 @@ export default function PodcastDetails(props) {
                   </div>
                 </div>
                 <Stack className={styles.stack} spacing={2} direction="row">
-                <Link href="/podcasts" as="podcasts">
-                  <a>
-                    <DeleteIcon
-                      variant="contained"
-                      onClick={() => {
-                        podcastHandler({ action: 'DELETE', payload: id });
-                      }}
-                      sx={{marginRight:"1rem", fontSize:"2rem"}}
-                    >
-                      {' '}
-                      Delete
-                    </DeleteIcon>
-                  </a>
-                </Link>
-                <ModeEditIcon
-                  variant="outlined"
-                  style={{fontSize:"2rem"}}
-                  onClick={() => {
-                    setShowModal(true);
-                  }}
-                >
-                  Edit
-                </ModeEditIcon>
-              </Stack>
+                  <Link href="/podcasts" as="podcasts">
+                    <a>
+                      <DeleteIcon
+                        variant="contained"
+                        onClick={() => {
+                          podcastHandler({ action: 'DELETE', payload: id });
+                        }}
+                        sx={{
+                          marginRight: '5rem',
+                          fontSize: '2rem',
+                        }}
+                      />
+                    </a>
+                  </Link>
+                  <ModeEditIcon
+                    variant="outlined"
+                    style={{ fontSize: '2rem' }}
+                    onClick={() => {
+                      setShowModal(true);
+                    }}
+                  />
+                </Stack>
               </div>
             </div>
           )}
         </div>
-        
       </div>
     );
   }

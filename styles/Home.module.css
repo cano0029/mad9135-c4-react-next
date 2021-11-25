@@ -50,12 +50,13 @@
 .footer {
   display: flex;
   position: relative;
-  bottom: 1rem;
+  padding: 0.5rem;
+  bottom: 0rem;
   margin: auto;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   color: white;
+  font-size: 0.8rem;
 }
 
 .footer a {
