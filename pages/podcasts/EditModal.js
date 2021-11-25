@@ -9,7 +9,7 @@ import Link from 'next/link';
 import styles from '../../styles/EditModal.module.css';
 import styling from '../../styles/Add.module.css';
 
-export default function editModal({ podcast }) {
+export default function editModal({ podcast, showModal, setShowModal }) {
   console.log('MODAL', podcast);
   console.log(podcast.image);
   const { podcastHandler } = useContext(AppContext);
@@ -103,39 +103,29 @@ export default function editModal({ podcast }) {
           ></TextField>
         </Box>
         <Stack className={styling.btnStack} spacing={2} direction="row">
-          <Link href="/podcasts" as="/podcasts">
-            <a>
-              <ButtonUnstyled
-                onClick={(ev) => {
-                  podcastHandler({
-                    action: 'PATCH',
-                    payload: updatedPodcast,
-                  });
-                }}
-                className={styling.stackButton}
-                style={{ backgroundColor: '#bf00d8' }}
-                onClick={() => {
-                  podcastHandler({
-                    action: 'CREATE',
-                    payload: newPodcastObj,
-                  });
-                }}
-              >
-                Save
-              </ButtonUnstyled>
-            </a>
-          </Link>
-          <Link href="/podcasts/[id]" as={`/podcasts/${podcast.id}`}>
-            <a>
-              <ButtonUnstyled
-                className={styling.stackButton}
-                style={{ backgroundColor: 'transparent' }}
-                variant="outlined"
-              >
-                Cancel
-              </ButtonUnstyled>
-            </a>
-          </Link>
+          <ButtonUnstyled
+            onClick={(ev) => {
+              podcastHandler({
+                action: 'PATCH',
+                payload: updatedPodcast,
+              });
+              setShowModal(false);
+            }}
+            className={styling.stackButton}
+            style={{ backgroundColor: '#bf00d8' }}
+          >
+            Save
+          </ButtonUnstyled>
+          <ButtonUnstyled
+            className={styling.stackButton}
+            style={{ backgroundColor: 'transparent' }}
+            variant="outlined"
+            onClick={() => {
+              setShowModal(false);
+            }}
+          >
+            Cancel
+          </ButtonUnstyled>
         </Stack>
       </div>
     </>
