@@ -6,13 +6,13 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { AppContext } from '../../Contexts/AppContext';
 import { useContext } from 'react';
-import EditModal from './EditModal';
+import EditModal from '../../components/EditModal';
 import styles from '../../styles/Details.module.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 // /notes/:id
-export default function PodcastDetails(props) {
+export default function PodcastDetails() {
   const router = useRouter();
   const { id } = router.query;
   const [podcast, setPodcast] = useState(null);

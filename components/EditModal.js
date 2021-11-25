@@ -4,26 +4,22 @@ import Stack from '@mui/material/Stack';
 import ButtonUnstyled from '@mui/base/ButtonUnstyled';
 import { Box, TextField } from '@mui/material';
 import Image from 'next/dist/client/image';
-import { AppContext } from '../../Contexts/AppContext';
+import { AppContext } from '../Contexts/AppContext';
 import Link from 'next/link';
-import styles from '../../styles/EditModal.module.css';
-import styling from '../../styles/Add.module.css';
+import styles from '../styles/EditModal.module.css';
+import styling from '../styles/Add.module.css';
 
-export default function editModal({ podcast, showModal, setShowModal }) {
+export default function EditModal({ podcast, setShowModal}) {
   console.log('MODAL', podcast);
   const { podcastHandler } = useContext(AppContext);
-
-  //TODO: How to change/save image?
-  const [image, setImage] = useState(podcast.image);
-  //
-
   const [title, setTitle] = useState(podcast.title);
   const [author, setAuthor] = useState(podcast.author);
   const [genre, setGenre] = useState(podcast.genre);
 
+  console.log(podcast.image, "Im a podcast yo")
   let updatedPodcast = {
     id: podcast.id,
-    image: image,
+    image: podcast.image,
     title: title,
     author: author,
     genre: genre,
@@ -49,7 +45,7 @@ export default function editModal({ podcast, showModal, setShowModal }) {
       <div className={styles.card}>
         <Box>
           <Image
-            src={`/images/${image}`}
+            src={`/images/${podcast.image}`}
             width="150"
             height="150"
             alt="podcast thumbnail"
