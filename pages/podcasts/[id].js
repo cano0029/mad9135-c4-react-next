@@ -48,13 +48,6 @@ export default function PodcastDetails(props) {
   if (showModal) {
     return (
       <div>
-        <Link href="/podcasts">
-          <a>&larr; Back to Podcast List</a>
-        </Link>
-        <h1>Podcast Details Page</h1>
-        <p>Add details here</p>
-        <p>This is Podcast {id}</p>
-
         <div>
           <EditModal podcast={podcast} />
         </div>
