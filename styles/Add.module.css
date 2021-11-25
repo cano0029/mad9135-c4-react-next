@@ -1,0 +1,32 @@
+.main {
+  color: white;
+  background-color: rgba(46, 46, 46, 0.568);
+  border: 1px solid #ffffff1a;
+  border-radius: 1rem;
+  margin-top: 5rem;
+  text-align: center;
+  margin-bottom: 34vh;
+}
+
+.textField {
+  color: white;
+  background-color: '#eaeaea17';
+}
+
+.textField > label {
+  color: white;
+}
+
+.btnStack {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.stackButton {
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  color: white;
+  border: 1px solid #eaeaea50;
+  background-color: #eaeaea17;
+}
