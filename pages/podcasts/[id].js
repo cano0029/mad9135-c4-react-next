@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
