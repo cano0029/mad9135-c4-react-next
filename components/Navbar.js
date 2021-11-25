@@ -8,19 +8,7 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <header
-      sx={{
-        height: '60px',
-        width: '100vw',
-        // bg: 'primary',
-        // borderBottom: '5px solid',
-        // borderColor: 'karim',
-        // backgroundColor: `accent`,
-        // color: `text`,
-        // py: 2,
-        // px: 4,
-      }}
-    >
+    <header>
       <nav
         style={{
           display: 'flex',
@@ -31,7 +19,15 @@ export default function NavBar() {
         }}
       >
         <Link href="/">
-          <a sx={{ px: 2, fontWeight: 'bold', fontSize: 4, cursor: 'pointer' }}>
+          <a
+            style={{
+              px: 2,
+              fontWeight: 'bold',
+              fontSize: 4,
+              cursor: 'pointer',
+              color: 'white',
+            }}
+          >
             PodPile
           </a>
         </Link>

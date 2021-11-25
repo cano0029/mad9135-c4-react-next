@@ -16,15 +16,19 @@ export default function Home({ podcasts }) {
         <h1 className={styles.title}>PodPile</h1>
 
         <p className={styles.description}>
-          Store your favourite <br/> podcasts here
+          Store your favourite <br /> podcasts here
         </p>
 
         <div className={styles.handContainer}>
-        <img className={styles.earphones} src='/images/earphones.png' alt="hand"/>
+          <img
+            className={styles.earphones}
+            src="/images/earphones.png"
+            alt="hand"
+          />
 
           <Link href="/podcasts" podcasts={podcasts}>
             <a className={styles.startButton}>
-              <p>See Podcast List <ArrowForwardIosIcon className={styles.startButton}/></p>
+              <p>See Podcast List</p>
             </a>
           </Link>
         </div>

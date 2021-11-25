@@ -8,6 +8,8 @@ import styles from '../../styles/List.module.css';
 // import podcastsHandler from '../api/podcasts';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../Contexts/AppContext';
+import { Button } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Podcasts() {
   // const { podcastHandler } = useContext(AppContext);
@@ -28,37 +30,48 @@ export default function Podcasts() {
 
   return (
     <div className={styles.main}>
-      <Link href="/podcasts/AddPodcast" as="/podcasts/AddPodcast">
-        <a>
-          <button>Add new podcast</button>
-        </a>
-      </Link>
-      <h1>Podcast List will go here</h1>
-      <p>Your list of podcast</p>
-      {podcasts &&
-        podcasts.map((podcast) => {
-          return (
-            <div key={podcast.id} className={styles.grid}>
-              <Link
-                key={podcast.id}
-                href="/podcasts/[id]"
-                as={`/podcasts/${podcast.id}`}
-                pod={podcast}
-              >
-                <a className={styles.card}>
-                  <Image
-                    src={`/images/${podcast.image}`}
-                    alt="cover"
-                    height={150}
-                    width={150}
-                  />
-                  <h2>{podcast.title}</h2>
-                  <span>{podcast.author}</span>
-                </a>
-              </Link>
-            </div>
-          );
-        })}
+      <div className={styles.screenHeader}>
+        <h1>Podcast List</h1>
+        <Link href="/podcasts/AddPodcast" as="/podcasts/AddPodcast">
+          <a className={styles.addButton}>
+            <AddCircleIcon
+              sx={{
+                color: 'white',
+                border: '1px white',
+                marginRight: '0.3rem',
+              }}
+            />
+            <span style={{ marginTop: '0.1rem' }}>Add</span>
+          </a>
+        </Link>
+      </div>
+      <div className={styles.grid}>
+        {podcasts &&
+          podcasts.map((podcast) => {
+            return (
+              <div key={podcast.id} className={styles.card}>
+                <Link
+                  key={podcast.id}
+                  href="/podcasts/[id]"
+                  as={`/podcasts/${podcast.id}`}
+                  pod={podcast}
+                >
+                  <a>
+                    <Image
+                      src={`/images/${podcast.image}`}
+                      alt="cover"
+                      height={150}
+                      width={150}
+                      className={styles.cover}
+                    />
+                    <h2 className={styles.title}>{podcast.title}</h2>
+                    <span className={styles.author}>{podcast.author}</span>
+                  </a>
+                </Link>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
