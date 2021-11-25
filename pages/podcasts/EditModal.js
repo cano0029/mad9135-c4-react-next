@@ -11,7 +11,6 @@ import styling from '../../styles/Add.module.css';
 
 export default function editModal({ podcast, showModal, setShowModal }) {
   console.log('MODAL', podcast);
-  console.log(podcast.image);
   const { podcastHandler } = useContext(AppContext);
 
   //TODO: How to change/save image?
