@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import styles from '../styles/Home.module.css';
 
 export default function Home({ podcasts }) {
@@ -20,9 +19,10 @@ export default function Home({ podcasts }) {
         </p>
 
         <div className={styles.handContainer}>
-          <img
-            className={styles.earphones}
+          <Image
             src="/images/earphones.png"
+            width={200}
+            height={375}
             alt="hand"
           />
 

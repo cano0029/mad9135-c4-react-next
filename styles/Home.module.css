@@ -65,20 +65,12 @@
   align-items: center;
 }
 
-.earphones {
-  width: 30vw !important;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: center;
-  z-index: -1;
-}
-
 .handContainer {
   background-color: #00000080;
   border-radius: 2rem;
   margin-top: 10rem;
-  padding: 1rem;
-  padding-bottom: 1.5rem;
+  padding: 4rem;
+  padding-bottom: 2rem;
 }
 
 .startButton {
@@ -134,63 +126,12 @@
   margin-left: 0.5rem;
 }
 
-/* @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-} */
-
-@media (min-width: 550px) {
-  .earphones {
-    width: 20vw !important;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: center;
-    z-index: -1;
-  }
-
+@media (max-width: 400px) {
   .handContainer {
     background-color: #00000080;
     border-radius: 2rem;
     margin-top: 10rem;
-    padding: 1rem;
-    padding-bottom: 1.5rem;
-  }
-}
-
-@media (min-width: 800px) {
-  .earphones {
-    width: 15vw !important;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: center;
-    z-index: -1;
-  }
-
-  .handContainer {
-    background-color: #00000080;
-    border-radius: 2rem;
-    margin-top: 10rem;
-    padding: 1rem;
-    padding-bottom: 1.5rem;
-  }
-}
-
-@media (min-width: 1000px) {
-  .earphones {
-    width: 10vw !important;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: center;
-    z-index: -1;
-  }
-
-  .handContainer {
-    background-color: #00000080;
-    border-radius: 2rem;
-    margin-top: 10rem;
-    padding: 1rem;
-    padding-bottom: 1.5rem;
+    padding: 2rem;
+    padding-bottom: 2rem;
   }
 }
