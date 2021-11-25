@@ -1,5 +1,6 @@
 // /** @jsxImportSource theme-ui */
 import Link from 'next/link';
+import AnimationIcon from '@mui/icons-material/Animation';
 
 // See: https://theme-ui.com/components
 
@@ -20,15 +21,10 @@ export default function NavBar() {
       >
         <Link href="/">
           <a>
+            <AnimationIcon />
             PodPile
           </a>
         </Link>
-
-        {/* <Link href="/books">
-          <a sx={{ px: 2, color: 'text', fontSize: 3, cursor: 'pointer' }}>
-            Books
-          </a>
-        </Link> */}
       </nav>
     </header>
   );
