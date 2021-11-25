@@ -22,7 +22,7 @@ export default function NavBar() {
       }}
     >
       <nav
-        sx={{
+        style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
