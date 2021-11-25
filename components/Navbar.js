@@ -19,15 +19,7 @@ export default function NavBar() {
         }}
       >
         <Link href="/">
-          <a
-            style={{
-              px: 2,
-              fontWeight: 'bold',
-              fontSize: 4,
-              cursor: 'pointer',
-              color: 'white',
-            }}
-          >
+          <a>
             PodPile
           </a>
         </Link>

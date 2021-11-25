@@ -19,3 +19,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+  margin-top: 0.1rem;
+}

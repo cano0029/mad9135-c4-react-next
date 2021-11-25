@@ -49,10 +49,12 @@
 
 .footer {
   display: flex;
+  position: relative;
+  bottom: 1rem;
+  margin: auto;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border-top: 1px solid #eaeaea;
   color: white;
 }
 
