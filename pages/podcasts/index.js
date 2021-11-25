@@ -4,7 +4,7 @@
 // same folder/naming convention for api than pages
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../styles/Home.module.css';
+import styles from '../../styles/List.module.css';
 // import podcastsHandler from '../api/podcasts';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../Contexts/AppContext';
@@ -21,16 +21,13 @@ export default function Podcasts() {
         return resp.json();
       })
       .then((data) => {
-        console.log('INDEX PODCASTS BEFORE', data);
-
         setPodcasts(data.podcasts);
-        console.log('INDEX PODCASTS', data);
       })
       .catch(console.error);
   }, []);
 
   return (
-    <div>
+    <div className={styles.main}>
       <Link href="/podcasts/AddPodcast" as="/podcasts/AddPodcast">
         <a>
           <button>Add new podcast</button>
