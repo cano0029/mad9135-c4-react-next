@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { AppContext } from '../../Contexts/AppContext';
 import Image from 'next/dist/client/image';
-import styles from '../../styles/Add.module.css'
+import styles from '../../styles/Add.module.css';
 
 export default function AddPodcasts() {
   const [title, setTitle] = useState('');
@@ -36,32 +36,34 @@ export default function AddPodcasts() {
       >
         <TextField
           required
-          style={{backgroundColor:'#eaeaea17', borderRadius:"4px"}}
-          InputLabelProps={{
-            className: styles.textField
+          style={{
+            backgroundColor: '#eaeaea17',
+            borderRadius: '4px',
           }}
-          InputProps={{className:styles.textField}}
+          InputLabelProps={{
+            className: styles.textField,
+          }}
+          InputProps={{ className: styles.textField }}
           label="Title"
           onChange={(event) => setTitle(event.target.value)}
         />
         <TextField
           required
-          style={{backgroundColor:'#eaeaea17', borderRadius:"4px"}}
+          style={{ backgroundColor: '#eaeaea17', borderRadius: '4px' }}
           InputLabelProps={{
-            className: styles.textField
+            className: styles.textField,
           }}
-          InputProps={{className:styles.textField}}
+          InputProps={{ className: styles.textField }}
           label="Host"
           onChange={(event) => setHost(event.target.value)}
         />
         <TextField
           required
-          style={{backgroundColor:'#eaeaea17', borderRadius:"4px"}}
+          style={{ backgroundColor: '#eaeaea17', borderRadius: '4px' }}
           InputLabelProps={{
-            className: styles.textField
-            }}
-            InputProps={{className:styles.textField}}
-
+            className: styles.textField,
+          }}
+          InputProps={{ className: styles.textField }}
           label="Genre"
           onChange={(event) => setGenre(event.target.value)}
         />
@@ -74,7 +76,7 @@ export default function AddPodcasts() {
             <ButtonUnstyled
               variant="contained"
               className={styles.stackButton}
-              style={{backgroundColor:'#bf00d8'}}
+              style={{ backgroundColor: '#bf00d8' }}
               onClick={() => {
                 podcastHandler({
                   action: 'CREATE',
@@ -89,11 +91,12 @@ export default function AddPodcasts() {
 
         <Link href="/podcasts" as="/podcasts">
           <a>
-            <ButtonUnstyled 
-            className={styles.stackButton} 
-            style={{backgroundColor:'transparent'}}
-            variant="outlined"
-            >Cancel
+            <ButtonUnstyled
+              className={styles.stackButton}
+              style={{ backgroundColor: 'transparent' }}
+              variant="outlined"
+            >
+              Cancel
             </ButtonUnstyled>
           </a>
         </Link>

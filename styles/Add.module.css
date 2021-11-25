@@ -25,8 +25,9 @@
 
 .stackButton {
   border-radius: 30px;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.2rem;
   color: white;
   border: 1px solid #eaeaea50;
   background-color: #eaeaea17;
+  font-size: 1rem;
 }
