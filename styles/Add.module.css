@@ -31,3 +31,43 @@
   background-color: #eaeaea17;
   font-size: 1rem;
 }
+
+@media (min-width: 577px) {
+  .main {
+    color: white;
+    background-color: rgba(46, 46, 46, 0.568);
+    border: 1px solid #ffffff1a;
+    max-width: 60vw;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    text-align: center;
+    margin-bottom: 43vh;
+  }
+}
+
+@media (min-width: 845px) {
+  .main {
+    color: white;
+    background-color: rgba(46, 46, 46, 0.568);
+    border: 1px solid #ffffff1a;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    text-align: center;
+    margin-bottom: 52vh;
+  }
+}
+
+@media (min-width: 846px) {
+  .main {
+    margin: auto;
+    color: white;
+    max-width: 40vw;
+    background-color: rgba(46, 46, 46, 0.568);
+    border: 1px solid #ffffff1a;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    text-align: center;
+    margin-bottom: 52vh;
+  }
+}

@@ -36,6 +36,7 @@ export default function AddPodcasts() {
       >
         <TextField
           required
+          fullWidth
           style={{
             backgroundColor: '#eaeaea17',
             borderRadius: '4px',
@@ -49,6 +50,7 @@ export default function AddPodcasts() {
         />
         <TextField
           required
+          fullWidth
           style={{ backgroundColor: '#eaeaea17', borderRadius: '4px' }}
           InputLabelProps={{
             className: styles.textField,
@@ -59,6 +61,7 @@ export default function AddPodcasts() {
         />
         <TextField
           required
+          fullWidth
           style={{ backgroundColor: '#eaeaea17', borderRadius: '4px' }}
           InputLabelProps={{
             className: styles.textField,
