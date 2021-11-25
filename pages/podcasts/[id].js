@@ -41,7 +41,7 @@ export default function PodcastDetails(props) {
           setPodcast(fake);
         });
     }
-  }, [id]);
+  }, [id, showModal]);
 
   //============= edit =============
 
@@ -49,7 +49,7 @@ export default function PodcastDetails(props) {
     return (
       <div>
         <div>
-          <EditModal podcast={podcast} />
+          <EditModal podcast={podcast} setShowModal={setShowModal} />
         </div>
       </div>
     );
