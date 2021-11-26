@@ -35,7 +35,7 @@ export default function PodcastDetails() {
           console.warn(err.message);
           let fake = {
             id,
-            image: '/images/sadBear.png',
+            image: 'sadBear.png',
             title: 'No Such Podcast Exists',
             author: err.message,
             genre: 'sorry',
@@ -43,7 +43,7 @@ export default function PodcastDetails() {
           setPodcast(fake);
         });
     }
-  }, [id, showModal]);
+  }, [id, showModal, setPodcast]);
 
   //============= edit =============
 
