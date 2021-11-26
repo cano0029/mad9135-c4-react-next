@@ -1,18 +1,12 @@
-// /podcasts
-// to display all podcasts GET /api/podcasts
-// to do a fetch call, use api folder?
-// same folder/naming convention for api than pages
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/List.module.css';
-// import podcastsHandler from '../api/podcasts';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../Contexts/AppContext';
 import { Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Podcasts() {
-  // const { podcastHandler } = useContext(AppContext);
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {

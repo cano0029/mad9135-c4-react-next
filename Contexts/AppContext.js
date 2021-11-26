@@ -7,9 +7,6 @@ export const AppContext = createContext();
 //Provider Component
 export const AppProvider = ({ children }) => {
   const [podcasts, setPodcasts] = useState(dataSource);
-  const [podcast, setPodcast] = useState();
-
-  //Actions
 
   function podcastHandler({ action, payload }) {
     if (action == 'CREATE') {
@@ -49,7 +46,6 @@ export const AppProvider = ({ children }) => {
         }
       );
     } else if (action == 'PATCH') {
-      console.log('IM EDITING', payload);
       let url = `/api/podcasts/${payload.id}`;
       fetch(url, {
         method: 'PATCH',

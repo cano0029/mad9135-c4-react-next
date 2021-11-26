@@ -2,8 +2,6 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 
 export default function Layout({ children }) {
-  // const children = props.children;
-
   return (
     <div
       sx={{

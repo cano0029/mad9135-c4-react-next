@@ -1,4 +1,3 @@
-// TODO: add an image filename - test if filepath works
 const dataSource = [
   {
     id: 'abcd0001',

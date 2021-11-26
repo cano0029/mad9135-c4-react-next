@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -11,7 +11,6 @@ import styles from '../../styles/Details.module.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
-// /notes/:id
 export default function PodcastDetails() {
   const router = useRouter();
   const { id } = router.query;
@@ -19,7 +18,6 @@ export default function PodcastDetails() {
   const { podcastHandler } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
 
-  //TODO: fetch podcast
   useEffect(() => {
     let url = `/api/podcasts/${id}`;
     if (id) {
@@ -45,9 +43,8 @@ export default function PodcastDetails() {
     }
   }, [id, showModal, setPodcast]);
 
-  //============= edit =============
-
   if (showModal) {
+    //============= Edit functionality =============
     return (
       <div>
         <div>
