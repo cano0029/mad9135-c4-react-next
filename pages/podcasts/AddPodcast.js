@@ -73,8 +73,7 @@ export default function AddPodcasts() {
       </Box>
 
       <Stack className={styles.btnStack} spacing={2} direction="row">
-        {/* TODO: figure out add functionality */}
-        <Link href="/podcasts" as="podcasts">
+        <Link href="/podcasts" as="/podcasts">
           <a>
             <ButtonUnstyled
               variant="contained"

@@ -35,8 +35,10 @@ export default function PodcastDetails() {
           console.warn(err.message);
           let fake = {
             id,
-            title: 'No such Podcast Exists',
+            image: '/images/sadBear.png',
+            title: 'No Such Podcast Exists',
             author: err.message,
+            genre: 'sorry',
           };
           setPodcast(fake);
         });
@@ -90,7 +92,7 @@ export default function PodcastDetails() {
                   </div>
                 </div>
                 <Stack className={styles.stack} spacing={2} direction="row">
-                  <Link href="/podcasts" as="podcasts">
+                  <Link href="/podcasts" as="/podcasts">
                     <a>
                       <DeleteIcon
                         variant="contained"
