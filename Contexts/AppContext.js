@@ -27,8 +27,8 @@ export const AppProvider = ({ children }) => {
           }
         )
         .then(() => {
-          return setPodcasts([...podcasts, payload]);
-          // return podcasts;
+          setPodcasts([...podcasts, payload]);
+          return podcasts;
         })
         .catch(console.error);
     } else if (action == 'DELETE') {

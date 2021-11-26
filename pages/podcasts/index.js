@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/List.module.css';
-import { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../../Contexts/AppContext';
-import { Button } from '@mui/material';
+import {useEffect, useState } from 'react';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Podcasts() {

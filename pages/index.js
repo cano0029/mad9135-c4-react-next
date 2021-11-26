@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ podcasts }) {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +26,7 @@ export default function Home({ podcasts }) {
             alt="hand"
           />
 
-          <Link href="/podcasts" podcasts={podcasts}>
+          <Link href="/podcasts" as="/podcasts">
             <a className={styles.startButton}>
               <p>See Podcast List</p>
             </a>
