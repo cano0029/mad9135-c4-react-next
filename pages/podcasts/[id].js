@@ -11,7 +11,6 @@ import styles from '../../styles/Details.module.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
-// /notes/:id
 export default function PodcastDetails() {
   const router = useRouter();
   const { id } = router.query;
@@ -19,7 +18,6 @@ export default function PodcastDetails() {
   const { podcastHandler } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
 
-  //TODO: fetch podcast
   useEffect(() => {
     let url = `/api/podcasts/${id}`;
     if (id) {
@@ -43,9 +41,8 @@ export default function PodcastDetails() {
     }
   }, [id, showModal]);
 
-  //============= edit =============
-
   if (showModal) {
+    //============= Edit functionality =============
     return (
       <div>
         <div>

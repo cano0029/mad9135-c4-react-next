@@ -9,14 +9,12 @@ import Link from 'next/link';
 import styles from '../styles/EditModal.module.css';
 import styling from '../styles/Add.module.css';
 
-export default function EditModal({ podcast, setShowModal}) {
-  console.log('MODAL', podcast);
+export default function EditModal({ podcast, setShowModal }) {
   const { podcastHandler } = useContext(AppContext);
   const [title, setTitle] = useState(podcast.title);
   const [author, setAuthor] = useState(podcast.author);
   const [genre, setGenre] = useState(podcast.genre);
 
-  console.log(podcast.image, "Im a podcast yo")
   let updatedPodcast = {
     id: podcast.id,
     image: podcast.image,

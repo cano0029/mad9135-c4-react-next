@@ -1,17 +1,10 @@
-// /** @jsxImportSource theme-ui */
-
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { AppContext } from '../Contexts/AppContext';
-// import { ThemeProvider } from 'theme-ui';
 import '../styles/globals.css';
-import {AppProvider} from '../Contexts/AppContext'
+import { AppProvider } from '../Contexts/AppContext';
 
 function MyApp({ Component, pageProps }) {
-  //pageProps is props
-
-  //TODO: fetch data on initial load
-
   const [podcasts, setPodcasts] = useState([]);
 
   useEffect(() => {
@@ -27,16 +20,13 @@ function MyApp({ Component, pageProps }) {
       .catch(console.error);
   }, []);
 
-  // LAYOUT FOR EVERY SINGLE PAGE IN THE WEBSITE:
   return (
-    // <ThemeProvider themeheme}>
     <AppProvider>
       <Layout>
-        <Component podcasts={podcasts} {...pageProps}/>
+        <Component podcasts={podcasts} {...pageProps} />
       </Layout>
     </AppProvider>
-    // </ThemeProvider>
-  ); //Component is index.js (home)
+  );
 }
 
 export default MyApp;
