@@ -44,3 +44,48 @@
   align-items: center;
   justify-content: center;
 }
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.button {
+  border-radius: 30px;
+  padding: 0.8rem 1.2rem;
+  background-color: #eaeaea17;
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 577px) {
+  .modal {
+    height: 30vh;
+    width: 70vw;
+  }
+}
+
+@media (min-width: 845px) {
+  .modal {
+    height: 30vh;
+    width: 60vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .modal {
+    height: 30vh;
+    width: 30vw;
+  }
+}
