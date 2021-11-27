@@ -21,7 +21,7 @@ export default function Home() {
         <div className={styles.handContainer}>
           <Image
             src="/images/earphones.png"
-            width={200}
+            width={170}
             height={375}
             alt="hand"
           />
